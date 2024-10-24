@@ -11,7 +11,6 @@ api_key = os.getenv('API_KEY')
 
 # Retrieve weather data from API in JSON format
 Currency_Exchange_API = f'https://api.twelvedata.com/currency_conversion?symbol=USD/PHP,USD/EUR&amount=1&format=JSON&apikey={api_key}'
-
 response = requests.get(Currency_Exchange_API)
 Currency_Exchange_API_JSON = response.json()
 
