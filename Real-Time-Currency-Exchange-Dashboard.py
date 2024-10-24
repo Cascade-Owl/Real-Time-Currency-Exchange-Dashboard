@@ -2,9 +2,16 @@ from datetime import datetime
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import requests
+from dotenv import load_dotenv
+import os
+
+# Gets API key from the environmental variables
+load_dotenv()
+api_key = os.getenv('API_KEY')
 
 # Retrieve weather data from API in JSON format
-Currency_Exchange_API = 'https://api.twelvedata.com/currency_conversion?symbol=USD/PHP,USD/EUR&amount=1&format=JSON&apikey=506dba2ad65445459fec9a7820bab366'
+Currency_Exchange_API = f'https://api.twelvedata.com/currency_conversion?symbol=USD/PHP,USD/EUR&amount=1&format=JSON&apikey={api_key}'
+
 response = requests.get(Currency_Exchange_API)
 Currency_Exchange_API_JSON = response.json()
 
@@ -69,7 +76,9 @@ def plot_animation(frame):
         php.set_ylim(min(USD_TO_PHP_Values)-0.01, max(USD_TO_PHP_Values)+0.01)
         php.legend()
         php.grid(True)
-        
+        php.text(0.9945, 0.025, f'Current Rate: {USD_TO_PHP_Rate} PHP', verticalalignment='bottom', horizontalalignment='right', 
+                 transform=php.transAxes, color='black', fontsize=11,
+                 bbox=dict(facecolor='white', edgecolor='black', boxstyle='square,pad=0.5'))
 
         euro.plot(Timestamp_Values, USD_TO_EURO_Values, label='USD-EURO Rate', color = 'violet', marker='o')
         euro.set_xlabel('Time')
@@ -77,6 +86,9 @@ def plot_animation(frame):
         euro.set_ylim(min(USD_TO_EURO_Values)-0.01, max(USD_TO_EURO_Values)+0.01)
         euro.legend()
         euro.grid(True)
+        euro.text(0.9945, 0.025, f'Current Rate: {USD_TO_EURO_Rate} EUR', verticalalignment='bottom', horizontalalignment='right', 
+                  transform=euro.transAxes, color='black', fontsize=11,
+                  bbox=dict(facecolor='white', edgecolor='black', boxstyle='square,pad=0.5'))
         
     # Plot when there are more than 9 plot data points (removes the oldest plot data point)
     elif len(USD_TO_PHP_Values) > 9 and len(USD_TO_EURO_Values) > 9:
@@ -91,6 +103,9 @@ def plot_animation(frame):
         php.set_ylim(min(USD_TO_PHP_Values)-0.01, max(USD_TO_PHP_Values)+0.01)
         php.legend()
         php.grid(True)
+        php.text(0.9945, 0.025, f'Current Rate: {USD_TO_PHP_Rate} PHP', verticalalignment='bottom', horizontalalignment='right', 
+                 transform=php.transAxes, color='black', fontsize=11,
+                 bbox=dict(facecolor='white', edgecolor='black', boxstyle='square,pad=0.5'))
         
         euro.plot(Timestamp_Values, USD_TO_EURO_Values, label='USD-EURO Rate', color = 'violet', marker='o')
         euro.set_xlabel('Time')
@@ -98,6 +113,9 @@ def plot_animation(frame):
         euro.set_ylim(min(USD_TO_EURO_Values)-0.01, max(USD_TO_EURO_Values)+0.01)
         euro.legend()
         euro.grid(True)
+        euro.text(0.9945, 0.025, f'Current Rate: {USD_TO_EURO_Rate} EUR', verticalalignment='bottom', horizontalalignment='right', 
+                  transform=euro.transAxes, color='black', fontsize=11,
+                  bbox=dict(facecolor='white', edgecolor='black', boxstyle='square,pad=0.5'))
         
 # Create an animation that updates the plot every 19 seconds
 animation = FuncAnimation(fig, plot_animation, interval=19000)
