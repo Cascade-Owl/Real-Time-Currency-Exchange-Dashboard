@@ -11,8 +11,9 @@ This project visualizes real-time currency exchange rates for USD to PHP and USD
 ## Requirements
 
 - Python 3.x
-- Matplotlib
-- Requests
+- matplotlib
+- requests
+- python-dotenv
 
 ## How To Use
 
