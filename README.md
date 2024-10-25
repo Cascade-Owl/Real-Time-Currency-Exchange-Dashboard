@@ -6,7 +6,6 @@ This project visualizes real-time currency exchange rates for USD to PHP and USD
 
 - **Real-Time Updates**: Automatically fetches and displays the latest exchange rates every 19 seconds.
 - **Data Visualization**: Utilizes Matplotlib to create animated line graphs showing USD to PHP and USD to EUR rates.
-- **User-Friendly Interface**: Easy-to-read graphs with current rates displayed for quick analysis.
 
 ## Requirements
 
