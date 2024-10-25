@@ -1,6 +1,6 @@
-# Real Time Currency Exchange Dashboard
+# Real-Time Currency Exchange Dashboard
 
-This project visualizes real-time currency exchange rates for USD to PHP and USD to EUR using data from a currency exchange API. The dashboard updates dynamically, providing a clear representation of currency trends over time.
+This project visualizes real-time currency exchange rates for USD to PHP and USD to EUR using data from a currency exchange API. The dashboard updates dynamically, providing a representation of currency trends over time.
 
 ## Features
 
