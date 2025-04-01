@@ -17,3 +17,5 @@ This project visualizes real-time currency exchange rates for USD to PHP and USD
 ## How To Use
 
 Run the script "Real-Time-Currency-Exchange-Dashboard.py"
+
+You will need an API key to run the script successfully. You can get your free API key at *https://twelvedata.com/*.
