@@ -2,12 +2,8 @@ from datetime import datetime
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import requests
-from dotenv import load_dotenv
-import os
 
-# Gets API key from the environmental variables
-load_dotenv()
-api_key = os.getenv('API_KEY')
+api_key = "" # Enter the API key here
 
 # Retrieve weather data from API in JSON format
 Currency_Exchange_API = f'https://api.twelvedata.com/currency_conversion?symbol=USD/PHP,USD/EUR&amount=1&format=JSON&apikey={api_key}'
